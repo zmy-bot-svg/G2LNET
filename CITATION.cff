@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it."
+title: "G2LNet"
+type: software
+authors:
+  - name: "G2LNet Contributors"
+version: "0.1.0"
+date-released: "2026-01-29"

@@ -1,0 +1,53 @@
+project_name: "GCPNet_MultiTask"
+net: "GCPNet"
+output_dir: "./output_multitask"
+self_loop: True
+n_neighbors: 12
+debug: False
+
+netAttributes:
+  firstUpdateLayers: 3
+  secondUpdateLayers: 4
+  atom_input_features: 129            
+  edge_input_features: 50
+  triplet_input_features: 40
+  embedding_features: 64
+  hidden_features: 96
+  min_edge_distance: 0.0
+  max_edge_distance: 8.0
+  batch_size: 32
+  num_workers: 4                      
+  dropout_rate: 0.05
+  use_global_context: True
+  global_radius: 4.0
+  global_fusion_alpha: 0.3
+
+hyperParameters:
+  lr: 0.0006400597319432715
+  optimizer: "AdamW"
+  optimizer_args:
+    weight_decay: 0.00043060334650808985
+  scheduler: "ReduceLROnPlateau"
+  scheduler_args:
+    mode: "min"
+    factor: 0.5
+    patience: 8
+    min_lr: 1.0e-6
+    threshold: 0.0002
+  seed: 3186
+  epochs: 30
+  patience: 15
+
+data:
+  points: all
+  dataset_path: './data'
+  dataset_name: 'jarvis_multitask'  
+  target_names: ['formation_energy_peratom', 'band_gap']  
+  pin_memory: False
+  num_folds: 5
+
+# 预测配置
+predict:
+  model_path: 'model.pt'
+  output_path: 'output.csv'
+
