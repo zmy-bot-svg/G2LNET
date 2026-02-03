@@ -730,7 +730,7 @@ class AdvancedJARVISSampler:
 def main():
     logger.info("JARVIS-DFT sampling pipeline v2.6")
 
-    pkl_path = './jarvis_data/raw/jarvis_dft_75k_raw.pkl'
+    pkl_path = './jarvis_data/raw/jarvis_dft_76k_raw.pkl'
     sampler = AdvancedJARVISSampler(
         pkl_path=pkl_path,
         target_size=15000,
@@ -805,4 +805,5 @@ def main():
 
 
 if __name__ == "__main__":
+
     main()
